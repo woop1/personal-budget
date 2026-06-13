@@ -1,11 +1,10 @@
-let nombres = [];
-let valores = [];
+const miPresupuesto = new Presupuesto();
 
-function registrarMovimiento() {
-  const nombre = prompt("Nombre del movimiento:");
-  const tipo = prompt("Tipo (ingreso / gasto):");
-  const monto = parseFloat(prompt("Monto:"));
+miPresupuesto.agregar(new Movimiento("Salario", "ingreso", 3000));
+miPresupuesto.agregar(new Movimiento("Cena", "gasto", 45.5));
+miPresupuesto.agregar(new Movimiento("Freelance", "ingreso", 500));
 
+<<<<<<< HEAD
   if (
     !nombre ||
     (tipo !== "ingreso" && tipo !== "gasto") ||
@@ -42,3 +41,7 @@ console.log(
   "Promedio de ingresos: $" +
   promedioIngresos(valores).toFixed(2)
 );
+=======
+console.log("--- RESUMEN FINAL ---");
+console.log(miPresupuesto.resumen());
+>>>>>>> 99877bc (Laboratorio 07: Objetos + POO con class — el modelo del Gestor)
