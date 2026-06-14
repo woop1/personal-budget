@@ -12,13 +12,19 @@ miPresupuesto.agregar(new Movimiento("Freelance", "ingreso", 500));
 function render() {
   lista.innerHTML = miPresupuesto.movimientos.map(m => {
     const esIngreso = m.esIngreso();
+
+    const colorTexto = esIngreso ? "text-green-700" : "text-red-700";
+    const colorFondo = esIngreso ? "bg-green-50 border-l-4 border-green-500"
+                                 : "bg-red-50 border-l-4 border-red-500";
+
     const signo = esIngreso ? "+" : "-";
-    const color = esIngreso ? "text-green-700" : "text-red-700";
 
     return `
-      <li class="flex justify-between p-3 bg-white rounded shadow">
+      <li class="flex justify-between p-3 rounded shadow ${colorFondo}">
         <span>${m.nombre} (${m.tipo})</span>
-        <span class="${color}">${signo}$${m.valor.toFixed(2)}</span>
+        <span class="${colorTexto}">
+          ${signo}$${m.valor.toFixed(2)}
+        </span>
       </li>
     `;
   }).join("");
